@@ -7,4 +7,5 @@ fun main(args: Array<String>) {
     println(calculateVaRHistorical(inputData))
 }
 
-fun calculateVaRHistorical(data: List<Double>): Double = data.sorted()[data.size/100] // p ~= 0.01
+fun calculateVaRHistorical(data: List<Double>, probability: Double = 0.01): Double =
+    data.sorted()[(data.size * probability).toInt()]
