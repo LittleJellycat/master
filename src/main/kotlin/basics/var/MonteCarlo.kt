@@ -12,7 +12,7 @@ fun calculateGeneratorBasedMonteCarloVaR(
     probability: Double = 0.01,
     generator: () -> Double
 ): Double =
-    generateSequence(generator)
+    -generateSequence(generator)
         .take(sampleSize)
         .sorted()
         .toList()[(sampleSize * probability).toInt()]

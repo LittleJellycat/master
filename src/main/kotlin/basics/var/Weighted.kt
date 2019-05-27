@@ -11,7 +11,7 @@ fun calculateWeightedVaR(data: List<Double>, probability: Double = 0.01, decayFa
     var lastValue: Double? = null
     for ((value, weight) in sortedData) {
         sum += weight
-        if (sum >= probability) return lastValue ?: value
+        if (sum >= probability) return -(lastValue ?: value)
         lastValue = value
     }
     return Double.NaN
